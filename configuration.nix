@@ -5,33 +5,13 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-#      ./hardware-configuration.nix
-    ];
-
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-
-  networking.hostName = "limansky-nb"; # Define your hostname.
-
-  # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager = {
-    enable = true;
-    plugins = [ pkgs.networkmanager-openconnect ];
-  };
-
   # Set your time zone.
-  time.timeZone = "Europe/Moscow";
-  time.hardwareClockInLocalTime = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://192.168.1.10:3128/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "ru_RU.UTF-8";
 #  console = {
 #    font = "Cyr-a8x16";
 #     keyMap = "cp866_to_uni";
@@ -70,10 +50,6 @@
   services.xserver.xkb.variant = ",winkeys";
 
   # Enable CUPS to print documents.
-  services.printing = {
-    enable = true;
-    drivers = [ pkgs.hplip ];
-  };
 
   # Enable sound.
   # services.pulseaudio.enable = true;
@@ -207,7 +183,6 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "26.05"; # Did you read the comment?
 
   environment.variables.EDITOR = "nvim";
 

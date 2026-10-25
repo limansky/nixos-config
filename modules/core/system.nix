@@ -9,5 +9,5 @@
   };
 
   # DO NOT TOUCH THIS. It's initial version
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "26.05";
 }

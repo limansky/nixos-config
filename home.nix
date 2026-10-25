@@ -1,9 +1,6 @@
 { config, pkgs, dotfiles, ... }:
 
 {
-  home.username = "limansky";
-  home.homeDirectory = "/home/limansky";
-
   xresources.properties = {
     "Xcursor.size" = 16;
     #"Xft.dpi" = 172;
@@ -36,7 +33,7 @@
     clang
     sqlite
     qgit
-    (callPackage ./adguard.nix {} )
+    (callPackage ./modules/software/adguard.nix {} )
     zoom-us
     telegram-desktop
     nixd
@@ -75,18 +72,6 @@
     fuzzel
 
   ];
-
-  programs.git = {
-    enable = true;
-    settings = {
-      user.name = "Mike Limansky";
-      user.email = "mike.limansky@gmail.com";
-    };
-    lfs.enable = true;
-    package = pkgs.gitFull;
-  };
-
-  home.stateVersion = "26.05";
 
   xdg.configFile = {
     hypr.source = "${dotfiles}/.config/hypr";

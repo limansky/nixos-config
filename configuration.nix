@@ -5,99 +5,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Set your time zone.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://192.168.1.10:3128/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-#  console = {
-#    font = "Cyr-a8x16";
-#     keyMap = "cp866_to_uni";
-#    useXkbConfig = true; # use xkb.options in tty.
-#  };
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-  };
-
-  # services.displayManager.lemurs = {
-
-  services.xserver.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-  };
-
-  programs.hyprland.enable = true;
-
-  services.postgresql = {
-    enable = true;
-    enableTCPIP = true;
-    ensureDatabases = [ "test" ];
-    authentication = pkgs.lib.mkOverride 10 ''
-      #type database  DBuser  auth-method
-      local all       all     trust
-      host  all       all     127.0.0.1/32   trust
-      host  all       all     ::1/128        trust
-    '';
-  };
 
   # Configure keymap in X11
-  services.xserver.xkb.layout = "us,ru";
-  services.xserver.xkb.options = "grp:shifts_toggle,grp_led:scroll";
-  services.xserver.xkb.variant = ",winkeys";
-
-  # Enable CUPS to print documents.
-
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
-  services.pipewire = {
-     enable = true;
-     pulse.enable = true;
-  };
-
-  services.blueman.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.limansky = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.fish;
-  };
-
-  programs.firefox = {
-    enable = true;
-    languagePacks = [ "en-US" "ru" ];
-  };
-
-  programs.fish.enable = true;
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
-  programs.git = {
-    enable = true;
-  };
-
-  programs.java = {
-    enable = true;
-    package = pkgs.temurin-bin-17;
-  };
-
-  virtualisation.docker = {
-    enable = true;
-    extraOptions = ''--insecure-registry registry.docker.ofd.nov:5000'';
-  };
-
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
 #  environment.systemPackages = with pkgs; [
@@ -112,35 +22,7 @@
       "claude-code"
     ];
 
-  security.sudo = {
-    enable = true;
-    package = pkgs.sudo.override { withInsults = true; };
-    extraRules = [{
-      commands = [
-        {
-          command = "${pkgs.systemd}/bin/reboot";
-          options = [ "NOPASSWD" ];
-        }
-        {
-          command = "${pkgs.systemd}/bin/poweroff";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-      groups = [ "wheel" ];
-    }];
-    extraConfig = with pkgs; ''
-      Defaults:picloud secure_path="${lib.makeBinPath [
-        systemd
-      ]}:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
-    '';
-  };
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-color-emoji
-    font-awesome
-    nerd-fonts.noto
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -184,10 +66,8 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
 
-  environment.variables.EDITOR = "nvim";
 
-  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
 
-  programs.niri.enable = true;
+  # programs.niri.enable = true;
 }
 

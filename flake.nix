@@ -35,6 +35,7 @@
     nixosConfigurations.limansky-nb = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {
+        inherit inputs;
         inherit host;
         inherit username;
       };
@@ -43,18 +44,7 @@
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect
         ./configuration.nix
-
         ./profiles/intel
-
-        home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.limansky = import ./home.nix;
-            home-manager.extraSpecialArgs = {
-              inherit (inputs) dotfiles;
-            };
-          }
       ];
     };
 

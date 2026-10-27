@@ -4,6 +4,7 @@
     ./hardware.nix
     ./network.nix
     ./system.nix
+    ./unfree.nix
     ./sddm.nix
     ./locale.nix
     ./printing.nix

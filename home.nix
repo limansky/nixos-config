@@ -12,27 +12,13 @@
 
   home.packages = with pkgs; [
     ncdu
-    libreoffice
 
     wezterm
     pavucontrol
 
     kubectl
-    nodejs
-    #corepack
     qgit
     (callPackage ./modules/software/adguard.nix {})
-    jetbrains.idea
-    zathura
-
-    #ai
-    # code-cursor
-    claude-code
-
-    google-chrome
-
-    gimp
-    freecad
 
     #xmonad
     dunst

@@ -8,34 +8,17 @@
   };
 
   home.packages = with pkgs; [
-    delta
-    ripgrep
     ncdu
-    bat
     libreoffice
 
     wezterm
     pavucontrol
 
     kubectl
-    sbt
-    coursier
     nodejs
     #corepack
-    jq
-    bc
-    maven
-    cargo
-    rustfmt
-    rustc
-    rust-analyzer
-    clippy
-    clang
-    sqlite
     qgit
     (callPackage ./modules/software/adguard.nix {} )
-    zoom-us
-    telegram-desktop
     nixd
     jetbrains.idea
     zathura
@@ -50,15 +33,8 @@
     freecad
 
 #xmonad
-    dzen2
-    conky
-    stalonetray
     dunst
-    feh
     scrot
-    xkill
-    xlockmore
-    xautolock
 
 # wayland
     kitty

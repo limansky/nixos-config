@@ -1,6 +1,9 @@
-{ config, pkgs, dotfiles, ... }:
-
 {
+  config,
+  pkgs,
+  dotfiles,
+  ...
+}: {
   xresources.properties = {
     "Xcursor.size" = 16;
     #"Xft.dpi" = 172;
@@ -18,12 +21,11 @@
     nodejs
     #corepack
     qgit
-    (callPackage ./modules/software/adguard.nix {} )
-    nixd
+    (callPackage ./modules/software/adguard.nix {})
     jetbrains.idea
     zathura
 
-#ai
+    #ai
     # code-cursor
     claude-code
 
@@ -32,11 +34,11 @@
     gimp
     freecad
 
-#xmonad
+    #xmonad
     dunst
     scrot
 
-# wayland
+    # wayland
     kitty
     waybar
     wofi
@@ -46,7 +48,6 @@
     hyprlock
     hyprshot
     fuzzel
-
   ];
 
   xdg.configFile = {

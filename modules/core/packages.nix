@@ -1,4 +1,4 @@
-{pkgs,...}: {
+{pkgs, ...}: {
   programs = {
     neovim = {
       enable = true;
@@ -9,7 +9,7 @@
 
     firefox = {
       enable = true;
-      languagePacks = [ "en-US" "ru" ];
+      languagePacks = ["en-US" "ru"];
     };
 
     git.enable = true;

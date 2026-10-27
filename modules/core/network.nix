@@ -1,9 +1,13 @@
-{host, pkgs, ...}: {
+{
+  host,
+  pkgs,
+  ...
+}: {
   networking = {
     hostName = "${host}";
     networkmanager = {
       enable = true;
-      plugins = [ pkgs.networkmanager-openconnect ];
+      plugins = [pkgs.networkmanager-openconnect];
     };
     firewall = {
       enable = true;

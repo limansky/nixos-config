@@ -4,7 +4,6 @@
   makeWrapper,
   stdenv,
 }:
-
 stdenv.mkDerivation {
   pname = "adguardvpn-cli";
   version = "1.8.2-nightly.2";
@@ -12,7 +11,7 @@ stdenv.mkDerivation {
     url = "https://github.com/AdguardTeam/AdGuardVPNCLI/releases/download/v1.8.2-nightly.2/adguardvpn-cli-1.8.2-nightly.2-linux-x86_64.tar.gz";
     sha256 = "62Gc8ZawCcMEgb9Yhbdo/6eX+Q+ox0r/1pCUorExmaM=";
   };
-  phases = ["unpackPhase" "installPhase" ];
+  phases = ["unpackPhase" "installPhase"];
   nativeBuildInputs = [
     makeWrapper
   ];

@@ -26,7 +26,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, alejandra, ... }@inputs: let
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    alejandra,
+    ...
+  } @ inputs: let
     username = "limansky";
     system = "x86_64-linux";
     host = "limansky-nb";

@@ -1,5 +1,9 @@
-{pkgs, inputs, username,...}: {
-
+{
+  pkgs,
+  inputs,
+  username,
+  ...
+}: {
   programs.fish.enable = true;
 
   users.users.${username} = {
@@ -21,7 +25,7 @@
       inherit (inputs) dotfiles;
     };
     users.${username} = {
-      imports = [ ./../home ./../../home.nix ];
+      imports = [./../home ./../../home.nix];
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";

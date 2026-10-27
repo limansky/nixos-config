@@ -1,6 +1,4 @@
-{
-  pkgs, ...
-}: {
+{pkgs, ...}: {
   config = {
     hardware.graphics = {
       extraPackages = with pkgs; [

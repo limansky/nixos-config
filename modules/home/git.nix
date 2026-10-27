@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-
   programs.git = {
     enable = true;
     settings = {
@@ -9,5 +8,4 @@
     lfs.enable = true;
     package = pkgs.gitFull;
   };
-
 }

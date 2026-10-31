@@ -11,7 +11,7 @@
     ./graphics.nix
     ./ai.nix
     ./office.nix
-    ./adguiard.nix
+    ./adguard.nix
 
     ./devel
   ];

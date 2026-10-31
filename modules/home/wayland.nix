@@ -1,31 +1,5 @@
-{
-  config,
-  pkgs,
-  dotfiles,
-  ...
-}: {
-  xresources.properties = {
-    "Xcursor.size" = 16;
-    #"Xft.dpi" = 172;
-    "Xft.dpi" = 144;
-  };
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
-    ncdu
-
-    wezterm
-    pavucontrol
-
-    kubectl
-    qgit
-    (callPackage ./modules/software/adguard.nix {})
-
-    #xmonad
-    dunst
-    scrot
-
-    # wayland
-    kitty
     waybar
     wofi
     rofi
@@ -36,10 +10,6 @@
     fuzzel
   ];
 
-  xdg.configFile = {
-    hypr.source = "${dotfiles}/.config/hypr";
-    # nvim.source = "${dotfiles}/.config/nvim";
-  };
   wayland.windowManager.hyprland = {
     # Whether to enable Hyprland wayland compositor
     enable = true;

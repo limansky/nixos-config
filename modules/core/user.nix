@@ -25,7 +25,7 @@
       inherit (inputs) dotfiles;
     };
     users.${username} = {
-      imports = [./../home ./../../home.nix];
+      imports = [./../home];
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";

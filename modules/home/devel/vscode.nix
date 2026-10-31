@@ -1,6 +1,5 @@
 {pkgs, ...}: {
-
-  allowUnfreePackages = [ "vscode" ];
+  allowUnfreePackages = ["vscode"];
 
   home.packages = with pkgs; [
     vscode

@@ -5,5 +5,7 @@
     bat
     jq
     bc
+
+    ncdu
   ];
 }

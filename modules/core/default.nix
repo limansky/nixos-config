@@ -14,6 +14,7 @@
     ./packages.nix
     ./fonts.nix
     ./x11.nix
+    ./wayland.nix
     ./virtualization.nix
   ];
 }

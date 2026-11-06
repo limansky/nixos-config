@@ -13,6 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # format nix code
     alejandra = {
       url = "github:kamadorueda/alejandra";
@@ -37,7 +42,6 @@
     system = "x86_64-linux";
     host = "limansky-nb";
   in {
-    # Please replace my-nixos with your hostname
     nixosConfigurations.limansky-nb = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {

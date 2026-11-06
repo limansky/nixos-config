@@ -9,6 +9,6 @@
     mc
     file
     xclip
-    unzip
+    unzipNLS
   ];
 }

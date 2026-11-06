@@ -25,7 +25,10 @@
       inherit (inputs) dotfiles;
     };
     users.${username} = {
-      imports = [./../home];
+      imports = [
+        inputs.noctalia.homeModules.default
+        ./../home
+      ];
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";

@@ -2,10 +2,16 @@
   home.packages = with pkgs; [
     delta
     ripgrep
-    bat
     jq
     bc
 
     ncdu
   ];
+
+  programs.bat = {
+    enable = true;
+    extraPackages = with pkgs.bat-extras; [
+      batman
+    ];
+  };
 }

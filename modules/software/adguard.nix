@@ -6,10 +6,10 @@
 }:
 stdenv.mkDerivation {
   pname = "adguardvpn-cli";
-  version = "1.8.2-nightly.2";
+  version = "1.9.0-nightly.1";
   src = fetchurl {
-    url = "https://github.com/AdguardTeam/AdGuardVPNCLI/releases/download/v1.8.2-nightly.2/adguardvpn-cli-1.8.2-nightly.2-linux-x86_64.tar.gz";
-    sha256 = "62Gc8ZawCcMEgb9Yhbdo/6eX+Q+ox0r/1pCUorExmaM=";
+    url = "https://github.com/AdguardTeam/AdGuardVPNCLI/releases/download/v1.9.0-nightly.1/adguardvpn-cli-1.9.0-nightly.1-linux-x86_64.tar.gz";
+    sha256 = "9Gb83P8g1DGQWyzMLXonsC41nsBzGf7Vh1g1X1lTziA=";
   };
   phases = ["unpackPhase" "installPhase"];
   nativeBuildInputs = [

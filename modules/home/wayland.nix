@@ -33,8 +33,28 @@
       }
       {
         keys = "${mainMod} + SHIFT + s";
-        dsp = exec "hyprshot --clipboard-only -m output";
+        dsp = exec "${ipc} screenshot-fullscreen --copy-to-clipboard --no-save-to-file";
         desc = "Take screenshot";
+      }
+      {
+        keys = "${mainMod} + SHIFT + c";
+        dsp = "hl.dsp.window.close()";
+        desc = "Close active window";
+      }
+      {
+        keys = "${mainMod} + j";
+        dsp = "hl.dsp.window.cycle_next()";
+        desc = "Next window";
+      }
+      {
+        keys = "${mainMod} + k";
+        dsp = "hl.dsp.window.cycle_next({ next = false;})";
+        desc = "Next window";
+      }
+      {
+        keys = "${mainMod} + f";
+        dsp = "hl.dsp.window.fullscreen()";
+        desc = "Fullscreen";
       }
     ]
     ++ lib.concatMap (i: let
@@ -61,14 +81,8 @@
   };
 in {
   home.packages = with pkgs; [
-    waybar
-    wofi
-    rofi
     xdg-desktop-portal-hyprland
     xdg-desktop-portal-gnome
-    hyprlock
-    hyprshot
-    fuzzel
   ];
 
   wayland.windowManager.hyprland = {
@@ -87,6 +101,10 @@ in {
     };
     configType = "lua";
     settings = {
+      monitor = [
+        { output = "eDP-1"; mode = "prefered"; position = "0x0"; scale = 1.25; }
+        { output = "HDMI-A-1"; mode = "prefered"; position = "auto-right"; scale = 1.5; }
+      ];
       config = {
         input = {
           kb_layout = "us,ru";
@@ -154,6 +172,10 @@ in {
         };
       };
       bar.default = {
+        position = "top";
+        margin_edge = 0;
+        margin_ends = 0;
+        background_opacity = 0.6;
         start = [
           "launcher"
           "workspaces"
@@ -167,6 +189,7 @@ in {
           "battery"
           "volume"
           "network"
+          "sysmon"
           "spacer_default"
           "weather"
           "clock"

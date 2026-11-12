@@ -29,6 +29,11 @@
       url = "github:limansky/dotfiles";
       flake = false;
     };
+
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-26.05";
+#      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -36,6 +41,7 @@
     nixpkgs,
     home-manager,
     alejandra,
+    nixvim,
     ...
   } @ inputs: let
     username = "limansky";

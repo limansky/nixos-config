@@ -14,5 +14,7 @@
     ./adguard.nix
 
     ./devel
+
+    ./nixvim
   ];
 }

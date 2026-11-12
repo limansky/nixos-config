@@ -22,11 +22,12 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     extraSpecialArgs = {
-      inherit (inputs) dotfiles;
+      inherit (inputs) dotfiles nixvim;
     };
     users.${username} = {
       imports = [
         inputs.noctalia.homeModules.default
+	inputs.nixvim.homeModules.nixvim
         ./../home
       ];
       home = {

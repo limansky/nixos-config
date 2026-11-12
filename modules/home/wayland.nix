@@ -56,6 +56,31 @@
         dsp = "hl.dsp.window.fullscreen()";
         desc = "Fullscreen";
       }
+      {
+        keys = "${mainMod} + mouse:272";
+        dsp = "hl.dsp.window.drag()";
+        desc = "move";
+      }
+      {
+        keys = "${mainMod} + mouse:273";
+        dsp = "hl.dsp.window.resize()";
+        desc = "move";
+      }
+      {
+        keys = "XF86AudioRaiseVolume";
+        dsp = exec "${ipc} volume-up";
+        desc = "Volume up";
+      }
+      {
+        keys = "XF86AudioLowerVolume";
+        dsp = exec "${ipc} volume-down";
+        desc = "Volume down";
+      }
+      {
+        keys = "XF86AudioMute";
+        dsp = exec "${ipc} volume-mute";
+        desc = "Volume mute";
+      }
     ]
     ++ lib.concatMap (i: let
       key = toString (lib.mod i 10);
@@ -143,11 +168,15 @@ in {
         (windowRule { float = false; workspace = "w[tv1]"; } { rounding = 0; })
         (windowRule { float = false; workspace = "f[1]"; } { border_size = 0; })
         (windowRule { float = false; workspace = "f[1]"; } { rounding = 0; })
+        (windowRule { title = "^(Картинка в картинке)$"; } { float = true; })
+        (windowRule { title = "^(Картинка в картинке)$"; } { pin = true; })
+        (windowRule { class = "^(firefox)$"; } { workspace = 2; } )
       ];
 
       workspace_rule = [
         { workspace = "w[tv1]"; gaps_out = 0; gaps_in = 0; }
         { workspace = "f[1]"; gaps_out = 0; gaps_in = 0; }
+        { workspace = 2; default_name = "web"; }
       ];
     };
   };
